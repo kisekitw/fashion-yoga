@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>時尚瑜珈 v8｜空中瑜珈美學首選</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --m-blue: #b8c4d1;
+        --m-pink: #d9b3b3;
+        --m-grey: #8e9aaf;
+        --text-dark: #5a5a5a;
+        --bg-light: #f9f9f9;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Noto Sans TC", sans-serif;
+      }
+      body {
+        color: var(--text-dark);
+        line-height: 1.8;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* 1. 首屏 */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+          url("https://images.unsplash.com/photo-1518611012118-29a8d63ee0c2?q=80&w=1920&auto=format&fit=crop")
+            no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--white);
+        padding: 0 20px;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+        letter-spacing: 8px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        font-weight: 300;
+        letter-spacing: 2px;
+      }
+      .cta-btn {
+        background-color: var(--m-pink);
+        padding: 18px 45px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: 0.4s;
+        box-shadow: 0 4px 20px rgba(217, 179, 179, 0.5);
+        border: none;
+        cursor: pointer;
+        color: white;
+      }
+      .cta-btn:hover {
+        transform: scale(1.05);
+        background-color: #c99a9a;
+      }
+
+      section {
+        padding: 100px 10%;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .section-header h2 {
+        font-size: 2.2rem;
+        color: var(--m-grey);
+        margin-bottom: 15px;
+      }
+      .section-header span {
+        color: var(--m-pink);
+        font-weight: bold;
+      }
+
+      /* 2. 痛點 */
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+      .problem-card {
+        text-align: center;
+        padding: 40px 20px;
+        background: var(--bg-light);
+        border-radius: 20px;
+        transition: 0.3s;
+      }
+      .problem-card i {
+        font-size: 2.5rem;
+        color: #e57373;
+        margin-bottom: 20px;
+      }
+
+      /* 3. 解決方案 */
+      .solution-content {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
+      }
+      .solution-text {
+        flex: 1;
+        min-width: 300px;
+      }
+      .solution-list li {
+        margin-bottom: 25px;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      .solution-list i {
+        color: var(--m-pink);
+        font-size: 1.2rem;
+        margin-top: 5px;
+      }
+      .solution-img {
+        flex: 1;
+        min-width: 300px;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 20px 20px 0px var(--m-blue);
+      }
+      .solution-img img {
+        width: 100%;
+        display: block;
+      }
+
+      /* 4. 特色 */
+      .features {
+        background-color: var(--bg-light);
+      }
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+      .feature-item {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 15px;
+        border-bottom: 4px solid var(--m-blue);
+      }
+
+      /* 5. 見證 */
+      .testi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .testi-card {
+        padding: 30px;
+        background: var(--bg-light);
+        border-radius: 20px;
+        font-style: italic;
+        position: relative;
+      }
+      .testi-user {
+        margin-top: 20px;
+        font-weight: bold;
+        color: var(--m-grey);
+        font-style: normal;
+      }
+
+      /* 6. 師資 */
+      .instructor {
+        background: var(--m-blue);
+        color: var(--white);
+      }
+      .instructor-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+      }
+      .inst-img {
+        width: 300px;
+        height: 400px;
+        background: url("https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop")
+          center/cover;
+        border-radius: 100px 100px 0 0;
+        border: 5px solid var(--white);
+      }
+
+      /* 7. FAQ */
+      .faq {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        margin-bottom: 15px;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .faq-q {
+        padding: 20px;
+        background: var(--bg-light);
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+      .faq-a {
+        padding: 20px;
+        display: none;
+        background: var(--white);
+      }
+
+      /* 8. 頁尾 & 地圖 */
+      footer {
+        background: var(--bg-light);
+        padding: 80px 10% 40px;
+        text-align: center;
+      }
+      .map-box {
+        height: 450px;
+        margin: 40px 0;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+        background: #eee;
+      }
+      .contact-info {
+        margin-bottom: 40px;
+      }
+
+      /* 懸浮按鈕 */
+      .floating-cta {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .float-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+      .f-line {
+        background: #06c755;
+        font-size: 1.8rem;
+      }
+      .f-tel {
+        background: var(--m-pink);
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        section {
+          padding: 60px 5%;
+        }
+        .map-box {
+          height: 350px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>飛翔，是為了遇見更美的自己</h1>
+      <p>時尚瑜珈｜高雄在地深耕．零基礎也能輕鬆上手的空中美學</p>
+      <a href="#booking" class="cta-btn">立即預約首次體驗價 $399</a>
+    </header>
+
+    <section>
+      <div class="section-header">
+        <h2>妳是否也有這些<span>困擾</span>？</h2>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <i class="fas fa-tired"></i>
+          <p>❌ 肩頸僵硬<br />腰痠背痛？</p>
+        </div>
+        <div class="problem-card">
+          <i class="fas fa-walking"></i>
+          <p>❌ 體態浮腫<br />線條不明顯？</p>
+        </div>
+        <div class="problem-card">
+          <i class="fas fa-cloud-rain"></i>
+          <p>❌ 壓力巨大<br />找不到出口？</p>
+        </div>
+        <div class="problem-card">
+          <i class="fas fa-hourglass-end"></i>
+          <p>❌ 怕運動枯燥<br />總是半途而廢？</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: white">
+      <div class="section-header">
+        <h2>為什麼選擇<span>空中瑜珈</span>？</h2>
+      </div>
+      <div class="solution-content">
+        <div class="solution-text">
+          <ul class="solution-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>利用地心引力：</strong>舒緩脊椎壓力，輕鬆延展深層肌肉。
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>核心鍛鍊：</strong>在掛布上找回平衡，練出優雅馬甲線。
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>淋巴排毒：</strong>透過倒掛與纏繞，促進循環並消水腫。
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>療癒身心：</strong>在掛布包覆中，找回嬰兒般的安全感。
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="solution-img">
+          <img
+            src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=800&auto=format&fit=crop"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="section-header">
+        <h2>課程特色｜<span>專業與美感</span>並存</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>✅ 小班制教學</h3>
+          <p>嚴格控管人數，老師能細心照顧到每一位學員，安全最有保障。</p>
+        </div>
+        <div class="feature-item">
+          <h3>✅ 分級授課</h3>
+          <p>從完全零基礎到進階挑戰，循序漸進，不用擔心跟不上進度。</p>
+        </div>
+        <div class="feature-item">
+          <h3>✅ 無痛入門/打卡美照</h3>
+          <p>專業動作引導，第一堂課就能優雅飛翔，並拍出驚艷朋友圈的網美照。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2>她們，都在這裡遇見了<span>更好的自己</span></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          「本來以為很難，結果老師超有耐心，第一堂課我就能成功倒掛了！環境真的超美、超好拍！」
+          <div class="testi-user">—— 上班族 Amy</div>
+        </div>
+        <div class="testi-card">
+          「每次上完課都覺得全身舒暢，那是按摩也達不到的深層放鬆。體態也慢慢變得更有線條了。」
+          <div class="testi-user">—— 護理師 小美</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="instructor">
+      <div class="instructor-content">
+        <div class="inst-img"></div>
+        <div class="inst-info">
+          <h3>專業師資團隊</h3>
+          <p style="margin: 20px 0">
+            擁有國際認證與豐富教學經驗，專精於引導零基礎學員。我們強調「安全第一、優雅隨行」，帶領妳克服恐懼，在掛布上展現最美的姿態。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="section-header">
+        <h2>常見問題 <span>FAQ</span></h2>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Q: 我筋很硬可以練嗎？ <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          當然可以！空中瑜珈就是來幫妳拉筋的，掛布的輔助會讓伸展比地墊瑜珈更輕鬆。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Q: 體重有限制嗎？ <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          專業掛布可承重數百公斤，吊架也經過精密結構計算，安全無虞請放心。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Q: 服裝怎麼穿？ <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+          建議穿著貼身運動服（Legging），避免穿有拉鍊或鈕扣的衣服，以免勾破掛布。
+        </div>
+      </div>
+    </section>
+
+    <footer id="booking">
+      <div class="section-header">
+        <h2>本月新客體驗，<span>限時優惠中</span>！</h2>
+        <p>📍 地址：高雄市鼓山區南屏路 527 號 3 樓</p>
+      </div>
+
+      <div class="map-box">
+        <iframe
+          width="100%"
+          height="100%"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          src="https://maps.google.com/maps?q=高雄市鼓山區南屏路527號&t=&z=17&ie=UTF8&iwloc=&output=embed"
+        >
+        </iframe>
+      </div>
+
+      <div class="contact-info">
+        <p>
+          <i class="fas fa-mobile-alt"></i> 預約手機：<a
+            href="tel:0937621761"
+            style="color: var(--m-pink); font-weight: bold"
+            >0937-621-761</a
+          >
+        </p>
+        <p>
+          <i class="fab fa-line"></i> LINE ID：<a
+            href="https://lin.ee/D1ol6wG"
+            target="_blank"
+            style="color: #06c755; font-weight: bold"
+            >點我加入好友預約</a
+          >
+        </p>
+      </div>
+
+      <!-- <a
+        href="https://lin.ee/D1ol6wG"
+        target="_blank"
+        class="cta-btn"
+        style="display: inline-block"
+        >我要報名體驗課程</a
+      > -->
+      <p style="margin-top: 40px; font-size: 0.8rem; color: #999">
+        © 2026 時尚瑜珈 Fashion Yoga
+      </p>
+    </footer>
+
+    <div class="floating-cta">
+      <a href="tel:0937621761" class="float-btn f-tel"
+        ><i class="fas fa-phone"></i
+      ></a>
+      <a href="https://lin.ee/D1ol6wG" target="_blank" class="float-btn f-line"
+        ><i class="fab fa-line"></i
+      ></a>
+    </div>
+
+    <script>
+      // FAQ 開合
+      document.querySelectorAll(".faq-q").forEach((q) => {
+        q.addEventListener("click", () => {
+          const answer = q.nextElementSibling;
+          const icon = q.querySelector("i");
+          answer.style.display =
+            answer.style.display === "block" ? "none" : "block";
+          icon.classList.toggle("fa-chevron-up");
+          icon.classList.toggle("fa-chevron-down");
+        });
+      });
+
+      // 平滑滾動
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+  </body>
+</html>
